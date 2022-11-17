@@ -1,5 +1,6 @@
 import 'package:tugas_lab/main.dart';
 import 'package:flutter/material.dart';
+import 'package:tugas_lab/page/to_do_page.dart';
 
 class MyFormPage extends StatefulWidget {
   const MyFormPage({super.key});
@@ -28,8 +29,7 @@ class _MyFormPageState extends State<MyFormPage> {
     }
     if (jenjangDoktor) {
       return "Doktor";
-    } 
-    else {
+    } else {
       return "Blm ada";
     }
   }
@@ -38,7 +38,6 @@ class _MyFormPageState extends State<MyFormPage> {
   String kelasPBP = 'A';
   List<String> listKelasPBP = ['A', 'B', 'C', 'D', 'E', 'F', 'KI'];
   bool _nilaiSwitch = false;
-
 
   @override
   Widget build(BuildContext context) {
@@ -67,6 +66,16 @@ class _MyFormPageState extends State<MyFormPage> {
                 Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(builder: (context) => const MyFormPage()),
+                );
+              },
+            ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
                 );
               },
             ),
@@ -259,12 +268,15 @@ class _MyFormPageState extends State<MyFormPage> {
                                 children: <Widget>[
                                   Center(
                                     child: Text(
-                                      'Informasi Data'
-                                      + '\nJudul: ' + _namaLengkap
-                                      + '\nJenjang: ' + _jenjang()
-                                      + '\nUmur: $umur' 
-                                      + '\nKelas PBP: ' + kelasPBP
-                                      + '\nPractice Mode: $_nilaiSwitch',
+                                      'Informasi Data' +
+                                          '\nJudul: ' +
+                                          _namaLengkap +
+                                          '\nJenjang: ' +
+                                          _jenjang() +
+                                          '\nUmur: $umur' +
+                                          '\nKelas PBP: ' +
+                                          kelasPBP +
+                                          '\nPractice Mode: $_nilaiSwitch',
                                     ),
                                   ),
 

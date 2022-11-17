@@ -1,5 +1,6 @@
-import 'package:tugas_lab/form.dart';
+import 'package:tugas_lab/page/form.dart';
 import 'package:flutter/material.dart';
+import 'package:tugas_lab/page/to_do_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-       // Menambahkan drawer menu
+      // Menambahkan drawer menu
       drawer: Drawer(
         child: Column(
           children: [
@@ -75,6 +76,16 @@ class _MyHomePageState extends State<MyHomePage> {
                 );
               },
             ),
+            ListTile(
+              title: const Text('To Do'),
+              onTap: () {
+                // Route menu ke halaman to do
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ToDoPage()),
+                );
+              },
+            ),
           ],
         ),
       ),
@@ -82,7 +93,6 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            
             const Text(
               'You have clicked the button this many times:',
             ),
@@ -101,5 +111,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-
-
